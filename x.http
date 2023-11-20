@@ -1,1 +1,3 @@
-GET http://localhost:3030
+DELETE    http://localhost:3030/hi/
+
+
