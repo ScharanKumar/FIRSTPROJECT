@@ -34,7 +34,7 @@ initializeDBAndServer();
 
 app.post("/posted/",async(request,response)=>{
     const {id1,input1}=request.body
-    const query=`insert into play(id2,para2)
+    const query=`insert into new(id2,para2)
     values('${id1}','${input1}');`
     const response1 = await db.run(query)
     const x = response1.lastId
@@ -47,13 +47,13 @@ app.get("/",async(request,response)=>{
     response.send(response1)
 })
 app.get("/hi/",async(request,response)=>{
-  const query=`select * from play;`
+  const query=`select * from new;`
   const response1= await db.all(query)
   response.send(response1)
 })
 app.delete("/delete/:x/",async(request,response)=>{
   const {x} = request.params
-  const query=`delete from play 
+  const query=`delete from new 
   where id2 like '${x}';`
   const res = await db.run(query)
   response.send("Successfully deleted")
